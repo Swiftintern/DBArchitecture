@@ -1,6 +1,6 @@
 ### Database Schema ###
-database schema of Swiftintern website
-![Old Schema](https://github.com/faizanayubi/swiftintern/blob/master/application/db/swiftintern.png?raw=true)
+Database schema of Swiftintern website conatining all Tables, Procedures and Routines using MySQL as Relational Database Management Sysytem
+![Old Schema](https://github.com/Swiftintern/DBSchema/blob/master/swiftintern.png?raw=true)
 
 New Schema Changes
 - messages table (Split it in two because of relevation in mails sent and newsletter etc)
@@ -15,9 +15,3 @@ New Schema Changes
         - subject
         - body
         - created
-- metas table (to store meta data)
-    - name
-    - value
-    - property
-    - property_id
-    - created
