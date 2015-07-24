@@ -11,51 +11,38 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 ALTER TABLE `newswiftintern`.`answers` 
 ADD INDEX `fk_answers_questions1_idx` (`ques_id` ASC),
-ADD INDEX `fk_answers_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_answers_users1_idx` ,
-DROP INDEX `fk_answers_questions1_idx` ;
+ADD INDEX `fk_answers_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`applications` 
 ADD INDEX `fk_applications_students1_idx` (`student_id` ASC),
-ADD INDEX `fk_applications_opportunities1_idx` (`opportunity_id` ASC),
-DROP INDEX `fk_applications_opportunities1_idx` ,
-DROP INDEX `fk_applications_students1_idx` ;
+ADD INDEX `fk_applications_opportunities1_idx` (`opportunity_id` ASC);
 
 ALTER TABLE `newswiftintern`.`balances` 
-ADD INDEX `fk_balances_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_balances_users1_idx` ;
+ADD INDEX `fk_balances_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`bankaccounts` 
 DROP PRIMARY KEY,
 ADD PRIMARY KEY (`id`, `user_id`),
-ADD INDEX `fk_bankaccounts_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_bankaccounts_users1_idx` ;
+ADD INDEX `fk_bankaccounts_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`blogposts` 
-ADD INDEX `fk_blogposts_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_blogposts_users1_idx` ;
+ADD INDEX `fk_blogposts_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`conversations` 
-ADD INDEX `fk_conversations_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_conversations_users1_idx` ;
+ADD INDEX `fk_conversations_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`crms` 
-ADD INDEX `fk_crms_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_crms_users1_idx` ;
+ADD INDEX `fk_crms_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`experiences` 
 ADD INDEX `fk_experiences_users_idx` (`user_id` ASC),
-ADD INDEX `fk_experiences_organizations1_idx` (`organization_id` ASC),
-DROP INDEX `fk_experiences_organizations1_idx` ,
-DROP INDEX `fk_experiences_users_idx` ;
+ADD INDEX `fk_experiences_organizations1_idx` (`organization_id` ASC);
 
 ALTER TABLE `newswiftintern`.`followers` 
-ADD INDEX `fk_followers_users1_idx` (`user_id` ASC),
-DROP INDEX `fk_followers_users1_idx` ;
+ADD INDEX `fk_followers_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`images` 
-ADD INDEX `fk_images_users1_idx` (`users_id` ASC),
-DROP INDEX `fk_images_users1_idx` ;
+ADD INDEX `fk_images_users1_idx` (`user_id` ASC);
 
 ALTER TABLE `newswiftintern`.`members` 
 DROP PRIMARY KEY,
@@ -185,7 +172,7 @@ ADD CONSTRAINT `fk_followers_users1`
 
 ALTER TABLE `newswiftintern`.`images` 
 ADD CONSTRAINT `fk_images_users1`
-  FOREIGN KEY (`users_id`)
+  FOREIGN KEY (`user_id`)
   REFERENCES `newswiftintern`.`users` (`id`)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
